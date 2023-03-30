@@ -6,7 +6,7 @@ function panel() {
     const header = document.querySelector("#panel");
     const path = window.location.pathname;
   
-    if (path === "/") {
+    if (path === "../") {
       window.location.pathname = "../index";
     }
   
