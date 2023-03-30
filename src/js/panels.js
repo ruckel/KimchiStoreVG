@@ -7,7 +7,7 @@ function panel() {
     const path = window.location.pathname;
   
     if (path === "/") {
-      window.location.pathname = "/index.html";
+      window.location.pathname = "../index";
     }
   
     header.innerHTML = `
