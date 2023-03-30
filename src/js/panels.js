@@ -14,16 +14,16 @@ function panel() {
       <nav class="nav">
         <ul>
           <li class="${path.includes("/contact.html") ? "active" : ""}">
-            <a href="contact.html">Contact us</a>
+            <a href="../contact">Contact us</a>
           </li>
           <li class="${path.includes("/produkter.html") ? "active" : ""}">
-            <a href="produkter.html">Products</a>
+            <a href="../produkter">Products</a>
           </li>
           <li class="${path.includes("/order.html") ? "active" : ""}">
-            <a href="order.html">Order</a>
+            <a href="../order">Order</a>
           </li>
           <li class="${path.includes("/index.html") ? "active" : ""}">
-            <a href="index.html">Home</a>
+            <a href="../">Home</a>
           </li>
         </ul>
       </nav>
