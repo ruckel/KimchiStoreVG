@@ -6,24 +6,24 @@ function panel() {
     const header = document.querySelector("#panel");
     const path = window.location.pathname;
   
-    if (path === "../") {
-      window.location.pathname = "../index";
+    if (path === "../src/") {
+      window.location.pathname = "../src/index";
     }
   
     header.innerHTML = `
       <nav class="nav">
         <ul>
           <li class="${path.includes("/contact.html") ? "active" : ""}">
-            <a href="../contact">Contact us</a>
+            <a href="../src/contact">Contact us</a>
           </li>
           <li class="${path.includes("/produkter.html") ? "active" : ""}">
-            <a href="../produkter">Products</a>
+            <a href="../src/produkter">Products</a>
           </li>
           <li class="${path.includes("/order.html") ? "active" : ""}">
-            <a href="../order">Order</a>
+            <a href="../src/order">Order</a>
           </li>
           <li class="${path.includes("/index.html") ? "active" : ""}">
-            <a href="../">Home</a>
+            <a href="../src/">Home</a>
           </li>
         </ul>
       </nav>
