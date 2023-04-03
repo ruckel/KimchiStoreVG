@@ -31,7 +31,7 @@ if (window.sessionStorage.getItem("productID") == null){
         window.localStorage.setItem("product", JSON.stringify(product));
       }
       //Ta användaren till order sidan
-      window.document.location = "../order";
+      //window.document.location = "../order";
     })
 }
 
