@@ -32,6 +32,7 @@ if (window.sessionStorage.getItem("productID") == null){
       //window.document.location = "../order";
         const cartButton = document.querySelector("#ORDER");
         cartButton.innerHTML = 'ADDED TO CART'
+        console.log(localStorage)
     })
 }
 
