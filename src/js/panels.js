@@ -36,7 +36,7 @@ function panel() {
     <div>
     <b>Copyright &copy; 2023 - Melinda Walter, Oscar Jidåker, Kevin Dybeck, Gustav Henriksson - </b>
     
-    <a href="https://github.com/ruckel/KimchiStoreVG" style="color: white; font-weight: bold">GitHub</a>
+    <a href="https://github.com/ruckel/KimchiStoreVG" style="color: white; font-weight: bold">github</a>
     </div>
     `
 }
