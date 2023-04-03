@@ -6,11 +6,14 @@ import Customer from "./customer.js"; //laddar customer klassen
  * samt en total pris på vald produkt. Detta kan sedan bli en sumering
  * om man valt flera produkter
  */
-if(window.localStorage.getItem("product")){
+if(window.localStorage.getItem("cart")){
     const order = document.querySelector('#orders');
     //metod som skriver ut html finns längst ned på denna sida
-    let product = JSON.parse(window.localStorage.getItem("product"));
-    order.innerHTML = printProductHTML(product);
+    let cart = JSON.parse(window.localStorage.getItem("cart"));
+    cart.forEach((element, index) => {
+        order.innerHTML = printProductHTML(element);
+    });
+
     addition(product);
     subtraction(product);
     //remove knapp om man vill ta bort den valda produkten

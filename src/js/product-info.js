@@ -15,15 +15,18 @@ if (window.sessionStorage.getItem("productID") == null){
     const orderButton = document.querySelector("#ORDER"); //add to cart knapp och dess lyssnare
     orderButton.addEventListener('click', (e) => {
       e.preventDefault();
-      //Om det redan finns en vald produkt
-      //bytut gamla produkten mot nya
-      if(window.localStorage.getItem("product")){
-        window.localStorage.removeItem("product");
-        window.localStorage.setItem("product", JSON.stringify(product));
-        //ananrs lägg till produkten i localStorage
+
+
+      if(cart.filter(p => p.id === product.id).length === 0){
+        cart.push();
       } else {
-        cart.push(product); // lägg produkt i cart
+          cart.forEach((element) => {
+              if (element.id === product.id) {
+                  element.quantity++;
+              }
+          })
       }
+              window.localStorage.setItem("cart", JSON.stringify(cart));
 
         document.querySelector("#ORDER").innerHTML = 'ADDED TO CART';
         console.log(localStorage);
