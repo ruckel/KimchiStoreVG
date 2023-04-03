@@ -1,7 +1,5 @@
 import Product from "./product.js";
 
-//Variabel till taggen som visar produkten
-const productsContainer = document.querySelector(".singleProductContainer");
 
 //Tom variabel för produkten
 let product;
@@ -32,6 +30,8 @@ if (window.sessionStorage.getItem("productID") == null){
       }
       //Ta användaren till order sidan
       //window.document.location = "../order";
+        const cartButton = document.querySelector("#ORDER");
+        cartButton.innerHTML = 'ADDED TO CART'
     })
 }
 
