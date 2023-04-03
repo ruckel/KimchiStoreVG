@@ -92,6 +92,11 @@ form.example input[type=text] {
   border: 1px solid grey;
   background: #f1f1f1;
 }
+form.example input[type=tel] {
+  font-size: 17px;
+  border: 1px solid grey;
+  background: #f1f1f1;
+}
 
 form.example button {
   width:15%;
@@ -494,8 +499,8 @@ li a:hover:not(.active) {
 .contact-input {
   width: 40%;
   height: 17px;
-  margin: 1% auto auto;
-  
+  margin: 1% 25% auto;
+
 }
 .contact-input-textarea{
   min-height: 100px;
@@ -544,7 +549,7 @@ li a:hover:not(.active) {
   margin-bottom: 50px;
 }
 
-input[type=text], input[type=email], select, textarea {
+input[type=text], input[type=email], input[type=tel], input[type=number] select, textarea {
   display: inline-block;
   padding: 11px;
   border: 1px solid #000000; 
@@ -623,7 +628,15 @@ input[type=text], input[type=email], select, textarea {
 
 .action-price{
   font-size: 0.95rem;
+}
+
+.element-sum {
   font-weight: bold;
+  margin-left: 50px;
+}
+
+.productQuantity {
+  margin-right: 10px;
 }
 
 .quantity{
@@ -637,8 +650,9 @@ input[type=text], input[type=email], select, textarea {
   width: 20px;
   background-color: white;
   border: solid 1px;
-  margin: 0 2px 0 2px;
+  margin: 0 2px 2px 2px;
   height: 20px;
+  border-radius: 5px;
 }
 
 .quantity p{
@@ -814,9 +828,13 @@ input[type=text], input[type=email], select, textarea {
   .order-input{
     width: 100%;
   }
+  .order-nr-input {
+    height: auto;
+  }
   
   .cart{
     flex-direction: column;
+    justify-items: right;
   }
   
   .product-and-title{ 

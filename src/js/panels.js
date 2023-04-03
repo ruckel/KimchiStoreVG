@@ -14,13 +14,13 @@ function panel() {
       <nav class="nav">
         <ul>
           <li class="${path.includes("contact") ? "active" : ""}">
-            <a href="../contact">Contact us</a>
+            <a href="contact.html">Contact us</a>
           </li>
           <li class="${path.includes("produkter") ? "active" : ""}">
-            <a href="../produkter">Products</a>
+            <a href="produkter.html">Products</a>
           </li>
           <li class="${path.includes("order") ? "active" : ""}">
-            <a href="../order">Order</a>
+            <a href="order.html">Order</a>
           </li>
           <li class="${path.includes("index") ? "active" : ""}">
             <a href="../">Home</a>
@@ -35,7 +35,6 @@ function panel() {
     footer.innerHTML = `
     <div>
     <b>Copyright &copy; 2023 - Melinda Walter, Oscar Jidåker, Kevin Dybeck, Gustav Henriksson - </b>
-    
     <a href="https://github.com/ruckel/KimchiStoreVG" style="color: white; font-weight: bold">github</a>
     </div>
     `
