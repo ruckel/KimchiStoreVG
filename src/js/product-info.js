@@ -29,7 +29,7 @@ if (window.sessionStorage.getItem("productID") == null){
               window.localStorage.setItem("cart", JSON.stringify(cart));
 
         document.querySelector("#ORDER").innerHTML = 'ADDED TO CART';
-        console.log(localStorage);
+
         console.log(cart);
     })
 }

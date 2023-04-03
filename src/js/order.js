@@ -14,8 +14,8 @@ if(window.localStorage.getItem("cart")){
         order.innerHTML = printProductHTML(element);
     });
 
-    addition(product);
-    subtraction(product);
+    // addition(product);
+    // subtraction(product);
     //remove knapp om man vill ta bort den valda produkten
     const remove = document.querySelector('#remove');
     const totalPrice = document.querySelector('#totprice');
