@@ -1,22 +1,18 @@
 import Product from "./product.js";
 
 
-//Tom variabel för produkten
-let product;
+let product; //Tom variabel för produkten
+let cart = [];
 
-//Om användaren skriver in URLen när ingen produktvalts
-//Tas användaren tillbaka till index sidan
-//detta för att inte visa en tom sida
+
 if (window.sessionStorage.getItem("productID") == null){
-    window.location.replace("../");
+    window.location.replace("../produkter"); //Om användaren skriver in URLen utan produktID tas användaren till alla produkter
 } else {
-    //Hämtar id på produkten som valts
-    const id = window.sessionStorage.getItem("productID");
-    //fetchar produkten med det IDet
-    //samt tilldelar produkt variabeln till att bli den produkt som hämtas
-    getProductById(id);
-    //add to cart knapp och dess lyssnare
-    const orderButton = document.querySelector("#ORDER");
+    const id = window.sessionStorage.getItem("productID"); //Hämtar id på produkten som valts
+
+    getProductById(id); //fetchar produkten med det IDet samt tilldelar produkt variabeln till att bli den produkt som hämtas
+
+    const orderButton = document.querySelector("#ORDER"); //add to cart knapp och dess lyssnare
     orderButton.addEventListener('click', (e) => {
       e.preventDefault();
       //Om det redan finns en vald produkt
@@ -26,12 +22,10 @@ if (window.sessionStorage.getItem("productID") == null){
         window.localStorage.setItem("product", JSON.stringify(product));
         //ananrs lägg till produkten i localStorage
       } else {
-        window.localStorage.setItem("product", JSON.stringify(product));
+        cart.push(product); // lägg produkt i cart
       }
-      //Ta användaren till order sidan
-      //window.document.location = "../order";
-        const cartButton = document.querySelector("#ORDER");
-        cartButton.innerHTML = 'ADDED TO CART'
+
+        document.querySelector("#ORDER").innerHTML = 'ADDED TO CART';
         console.log(localStorage)
     })
 }
