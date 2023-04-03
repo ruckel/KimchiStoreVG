@@ -10,7 +10,7 @@ let product;
 //Tas användaren tillbaka till index sidan
 //detta för att inte visa en tom sida
 if (window.sessionStorage.getItem("productID") == null){
-    window.location.replace("index.html");
+    window.location.replace("../");
 } else {
     //Hämtar id på produkten som valts
     const id = window.sessionStorage.getItem("productID");
@@ -31,7 +31,7 @@ if (window.sessionStorage.getItem("productID") == null){
         window.localStorage.setItem("product", JSON.stringify(product));
       }
       //Ta användaren till order sidan
-      window.document.location = "order.html";
+      window.document.location = "../order";
     })
 }
 

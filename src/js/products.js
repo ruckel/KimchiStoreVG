@@ -78,7 +78,7 @@ function createProductDiv(imageURL, title, price, id){
   div.addEventListener('click', e =>{
     e.preventDefault();
     window.sessionStorage.setItem("productID", id);
-    window.document.location = "product-info.html?id=" + id;
+    window.document.location = "../product-info?id=" + id;
   })
   productsContainer.appendChild(div);
 }
