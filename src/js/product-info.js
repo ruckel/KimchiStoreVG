@@ -26,7 +26,8 @@ if (window.sessionStorage.getItem("productID") == null){
       }
 
         document.querySelector("#ORDER").innerHTML = 'ADDED TO CART';
-        console.log(localStorage)
+        console.log(localStorage);
+        console.log(cart);
     })
 }
 
