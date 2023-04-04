@@ -23,7 +23,7 @@ orderButton.addEventListener('click', (e) => {
     e.preventDefault();
 
 
-    if (cart.filter(p => p.id == product.id).length == 0) {
+    if (cart.filter(p => p.id === product.id).length === 0) {
         cart.push(product);
     } else {
         cart.forEach((element) => {
@@ -37,7 +37,7 @@ orderButton.addEventListener('click', (e) => {
     document.querySelector("#ORDER").innerHTML = 'ADDED TO CART';
 
     console.log(cart);
-    setTimeout(TimeRanges, 1000);
+    setTimeout(TimeRanges, 3000);
     window.location.replace("../produkter")
 })
 // }
