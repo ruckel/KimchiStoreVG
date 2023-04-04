@@ -37,6 +37,8 @@ orderButton.addEventListener('click', (e) => {
     document.querySelector("#ORDER").innerHTML = 'ADDED TO CART';
 
     console.log(cart);
+    setTimeout(TimeRanges, 1000);
+    window.location.replace("../produkter")
 })
 // }
 
