@@ -46,7 +46,7 @@ function printProductHTML(product) {   //Skriver ut produkten som HTML
             <p class="action-price">á ${product.price}€</p>
 
             <div class="quantity">
-                <p class="productQuantity">antal: ${product.quantity}</p>
+                <p class="productQuantity">amount: ${product.quantity}</p>
                 <button class="addButton" >+</button>
                 <button class="subButton" >-</button>
                 <button class="xButton" >x</button>
@@ -69,7 +69,7 @@ function addition() {
             cart[index].quantity++;
             sum += cart[index].price;
 
-            document.getElementsByClassName("productQuantity")[index].innerHTML = "antal: " + cart[index].quantity; //justerar antalet som användare ser
+            document.getElementsByClassName("productQuantity")[index].innerHTML = "amount: " + cart[index].quantity; //justerar antalet som användare ser
             elSum[index].innerHTML = `${cart[index].price * cart[index].quantity}€`; //justerar summan per artikel
             totprice.innerHTML = `Total: ${sum.toFixed(2)}€`; //justerar totalpris
 
@@ -90,7 +90,7 @@ function subtraction() {
             cart[index].quantity--;
             sum -= cart[index].price;
 
-            document.getElementsByClassName("productQuantity")[index].innerHTML = "antal: " + cart[index].quantity; //justerar antalet som användare ser
+            document.getElementsByClassName("productQuantity")[index].innerHTML = "amount: " + cart[index].quantity; //justerar antalet som användare ser
             elSum[index].innerHTML = `${cart[index].price * cart[index].quantity}€`; //justerar summan per artikel
             totprice.innerHTML = `Total: ${sum.toFixed(2)}€`; //justerar totalpris
 
