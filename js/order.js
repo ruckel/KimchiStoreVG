@@ -1,19 +1,17 @@
-console.log(localStorage);
+//window.onbeforeunload = function(){ return 'Leave page?'; };
 
 const orderForm = document.querySelector("#order-form")
 orderForm.reset();
-
-//window.onbeforeunload = function(){ return 'Leave page?'; };
 
 let cart;
 let sum = 0;
 const order = document.querySelector('#orders');
 const totalPrice = document.querySelector('#totprice');
-if(window.localStorage.getItem("cart")){
+if (window.localStorage.getItem("cart")) {   // om varor existerar i localstorage presenteras dom i varukorgen
     cart = JSON.parse(window.localStorage.getItem("cart"));
 
     cart.forEach((element) => {
-        sum += element.price*element.quantity;
+        sum += element.price * element.quantity;
         order.innerHTML += printProductHTML(element);
     });
     totalPrice.innerHTML = `Total: ${sum.toFixed(2)} €`;
@@ -22,50 +20,19 @@ if(window.localStorage.getItem("cart")){
     subtraction();
     deletion();
 }
-//Om knappen trycks tas info om produkterna bort och localStorage nollställs
+
 const clearCart = document.querySelector('#clear');
-clearCart.addEventListener('click', e =>{
+clearCart.addEventListener('click', e => {   //Om knappen trycks tas info om produkterna bort och localStorage nollställs
     e.preventDefault();
-    if(window.localStorage.getItem("cart")) {
-        order.innerHTML = 'Kundvagn tömd';
+    if (window.localStorage.getItem("cart")) {
+        order.innerHTML = 'Cart emptied';
         totalPrice.innerHTML = null;
         window.localStorage.removeItem("cart");
     }
 })
 
-/**
- * Om en kund trycker submit
- * hämtas all info från alla fält och skapar upp en
- * customer obj som läggs i sessionStorage
- * och användaren tas till action-page
- */
-// const nameInput = document.querySelector("#name");
-// const emailInput = document.querySelector("#email");
-// const telInput = document.querySelector("#tel");
-// const addressInput = document.querySelector("#address");
-// const postnrInput = document.querySelector("#postnr");
-// const ortInput = document.querySelector("#ort");
-// const submit = document.querySelector("#submit");
-
-// submit.addEventListener('click', e =>{
-//     e.preventDefault();
-//     window.sessionStorage.removeItem("customer");
-//     window.sessionStorage.setItem("customer", JSON.stringify(
-//         new Customer(nameInput.value,
-//             emailInput.value,
-//             telInput.value,
-//             addressInput.value,
-//             postnrInput.value,
-//             ortInput.value)
-//     ))
-//     window.sessionStorage.setItem("cart", cart);
-//     alert("test");
-    // window.document.location = "action-page.html";
-
-// })
-//Skriver ut produkten som HTML
-function printProductHTML(product){
-    let elementSum = product.price*product.quantity;
+function printProductHTML(product) {   //Skriver ut produkten som HTML
+    let elementSum = product.price * product.quantity;
     return `
         <div class="cart">
 
@@ -90,20 +57,20 @@ function printProductHTML(product){
       `;
 }
 
-function addition(){
+function addition() {
     let addButton = document.getElementsByClassName("addButton");
     let totprice = document.querySelector('#totprice');
     let elSum = document.getElementsByClassName("element-sum");
 
-    Array.prototype.forEach.call(addButton, function (element, index){
-        element.addEventListener('click', e=>{
+    Array.prototype.forEach.call(addButton, function (element, index) {
+        element.addEventListener('click', e => {
             e.preventDefault();
 
             cart[index].quantity++;
             sum += cart[index].price;
 
             document.getElementsByClassName("productQuantity")[index].innerHTML = "antal: " + cart[index].quantity; //justerar antalet som användare ser
-            elSum[index].innerHTML = `${cart[index].price*cart[index].quantity}€`; //justerar summan per artikel
+            elSum[index].innerHTML = `${cart[index].price * cart[index].quantity}€`; //justerar summan per artikel
             totprice.innerHTML = `Total: ${sum.toFixed(2)}€`; //justerar totalpris
 
             localStorage.setItem('cart', JSON.stringify(cart));
@@ -111,37 +78,35 @@ function addition(){
     })
 }
 
-function subtraction(){
+function subtraction() {
     let subButton = document.getElementsByClassName("subButton");
     let totprice = document.querySelector('#totprice');
     let elSum = document.getElementsByClassName("element-sum");
 
-    Array.prototype.forEach.call(subButton, function (element, index){
-        element.addEventListener('click', e=>{
+    Array.prototype.forEach.call(subButton, function (element, index) {
+        element.addEventListener('click', e => {
             e.preventDefault();
 
             cart[index].quantity--;
             sum -= cart[index].price;
 
             document.getElementsByClassName("productQuantity")[index].innerHTML = "antal: " + cart[index].quantity; //justerar antalet som användare ser
-            elSum[index].innerHTML = `${cart[index].price*cart[index].quantity}€`; //justerar summan per artikel
+            elSum[index].innerHTML = `${cart[index].price * cart[index].quantity}€`; //justerar summan per artikel
             totprice.innerHTML = `Total: ${sum.toFixed(2)}€`; //justerar totalpris
 
-            if(cart[index].quantity <= 0){
+            if (cart[index].quantity <= 0) {   // om antal artiklar når 0 tas artikeln bort från varukorg och localstorage
                 cart.splice(index, 1);
                 document.getElementsByClassName("cart")[index].remove();
                 localStorage.setItem('cart', JSON.stringify(cart));
                 location.reload();
-            }else{
+            } else {   // sparar varukorgen i localstorage
                 localStorage.setItem('cart', JSON.stringify(cart));
             }
-            if(cart.length === 0){
+            if (cart.length === 0) {   //om varukorgen är tom rensas cart från localstorage
                 document.querySelector('#remove').classList.add("hidden");
                 totprice.innerHTML = null;
                 localStorage.removeItem('cart');
             }
-
-
         })
     })
 }
