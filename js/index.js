@@ -109,7 +109,7 @@ submitButton.addEventListener('click', (e) =>{
 //Om användaren tryckt på et tsökalternativ vet vi att produkten finns
 //och användaren tas till produkt-info sidan där produkten visas
 function searchEventStatic(searchWord, id){
-    if(!searchWord == "" || !searchWord == null){
+    if(!searchWord === "" || !searchWord === null){
         //Lägger till id i sessionStorage så vi kan hämta rätt produkt
         window.sessionStorage.setItem("productID", id);
         //tar användaren till produkt-info sidan
@@ -120,7 +120,7 @@ function searchEventStatic(searchWord, id){
 //Om användaren trycker på sök knappen istället för på ett alternativ
 //kan flera matchningar ske
 function searchEvent(searchWord){
-    if(!searchWord == "" || !searchWord == null){
+    if(!searchWord === "" || !searchWord === null){
         let productIDList = [];
         let matchWholeWord = false;
         productList.forEach(e =>{

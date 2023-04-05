@@ -1,4 +1,3 @@
-import Customer from "./customer.js"; //laddar customer klassen
 console.log(localStorage);
 
 const orderForm = document.querySelector("#order-form")
@@ -13,7 +12,7 @@ const totalPrice = document.querySelector('#totprice');
 if(window.localStorage.getItem("cart")){
     cart = JSON.parse(window.localStorage.getItem("cart"));
 
-    cart.forEach((element, index) => {
+    cart.forEach((element) => {
         sum += element.price*element.quantity;
         order.innerHTML += printProductHTML(element);
     });

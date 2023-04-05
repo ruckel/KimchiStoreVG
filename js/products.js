@@ -45,7 +45,7 @@ function getAllProducts(){
           //Skriv ut alla produkter om categori valts
           if(window.sessionStorage.getItem("category")){
             data.forEach((product) => {
-              if(product.category == window.sessionStorage.getItem("category")){
+              if(product.category === window.sessionStorage.getItem("category")){
                 createProductDiv(product.image, product.title, product.price, product.id);
               }
             });
