@@ -23,7 +23,7 @@ function panel() {
             <a href="order.html">Order</a>
           </li>
           <li class="${path.includes("index") ? "active" : ""}">
-            <a href="../">Home</a>
+            <a href="../src">Home</a>
           </li>
         </ul>
       </nav>
